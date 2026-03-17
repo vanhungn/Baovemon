@@ -6,38 +6,42 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    internal class NhaCungCap
+    public class NhaCungCap
     {
 		private int _MaNCC;
+		private string _TenNCC;
+        private string _DiaChi;
+        private string _DienThoaiCC;
+        private string _Email;
 
-		public int MaNCC
+        public int MaNCC
         {
 			get { return _MaNCC; }
 			set { _MaNCC = value; }
 		}
-		private int _TenNCC;
-
-		public int TenNCC
+		
+		public string TenNCC
         {
 			get { return _TenNCC; }
 			set { _TenNCC = value; }
 		}
-		private int _DiaChi;
-
-		public int DiaChi
+		
+		public string DiaChi
         {
 			get { return _DiaChi; }
 			set { _DiaChi = value; }
 		}
-		private int _DienThoaiCC;
-
-		public int MyProperty
-		{
+		
+		public string DienThoaiCC
+        {
 			get { return _DienThoaiCC; }
 			set { _DienThoaiCC = value; }
 		}
-
-
-
+		
+		public string Email
+        {
+			get { return _Email; }
+			set { _Email = value; }
+		}
 	}
 }

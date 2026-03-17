@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace DTL
 {
-    internal class HangHoa
+    public class HangHoa : KetNoi
     {
+       
     }
 }

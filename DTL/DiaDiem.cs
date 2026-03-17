@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DTL
 {
-    internal class DiaDiem
+    public class DiaDiem:KetNoi
     {
     }
 }

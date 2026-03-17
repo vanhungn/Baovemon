@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DTL
 {
-    internal class TonKho
+    public class TonKho : KetNoi
     {
     }
 }

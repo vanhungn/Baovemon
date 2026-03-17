@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    internal class DiaDiem
+    public class DiaDiem
     {
 		private int _MaDD;
 		private string _TenDD;
