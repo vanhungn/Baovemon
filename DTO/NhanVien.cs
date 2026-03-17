@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    internal class NhanVien
+    public class NhanVien
     {
 		private int _Manv;
         private string _DienThoai;
@@ -14,8 +14,31 @@ namespace DTO
 		private string _GioiTinh;
 		private string _NgaySinh;
 		private string _DiaChi;
+		private string _TaiKhoan;
+        private string _MatKhau;
+		private int _VaiTro;
 
-        public int Manv
+		public int VaiTro
+        {
+			get { return _VaiTro; }
+			set { _VaiTro = value; }
+		}
+
+		public string TaiKhoan
+        {
+			get { return _TaiKhoan; }
+			set { _TaiKhoan = value; }
+		}
+		
+
+		public string MatKhau
+        {
+			get { return _MatKhau; }
+			set { _MatKhau = value; }
+		}
+
+
+		public int Manv
         {
 			get { return _Manv; }
 			set { _Manv = value; }

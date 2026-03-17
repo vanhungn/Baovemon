@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DTL
 {
-    internal class NhaCungCap
+    public class NhaCungCap : KetNoi
     {
     }
 }

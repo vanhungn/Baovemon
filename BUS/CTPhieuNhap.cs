@@ -8,5 +8,6 @@ namespace BUS
 {
     internal class CTPhieuNhap
     {
+
     }
 }

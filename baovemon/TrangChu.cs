@@ -10,22 +10,17 @@ using System.Windows.Forms;
 
 namespace baovemon
 {
-    public partial class Form1 : Form
+    public partial class TrangChu : Form
     {
-        public Form1()
+        public TrangChu()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void btn_NhanVien_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            string  userName = textBox1.Text;
-            string password = textBox2.Text;
+            NhanVien f = new NhanVien();
+            f.ShowDialog();
         }
     }
 }
