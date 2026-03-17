@@ -40,9 +40,9 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label13 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
+            this.btn_huy = new System.Windows.Forms.Button();
+            this.btn_reload = new System.Windows.Forms.Button();
+            this.btn_Luu = new System.Windows.Forms.Button();
             this.btn_xoa = new System.Windows.Forms.Button();
             this.btn_sua = new System.Windows.Forms.Button();
             this.btn_them = new System.Windows.Forms.Button();
@@ -56,7 +56,7 @@
             this.txt_TenNV = new System.Windows.Forms.TextBox();
             this.txt_MaNV = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lbl_MatKhau = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -171,7 +171,7 @@
             this.groupBox2.Controls.Add(this.txt_TenNV);
             this.groupBox2.Controls.Add(this.txt_MaNV);
             this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.lbl_MatKhau);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label8);
@@ -198,9 +198,9 @@
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.groupBox4.Controls.Add(this.button8);
-            this.groupBox4.Controls.Add(this.button7);
-            this.groupBox4.Controls.Add(this.button10);
+            this.groupBox4.Controls.Add(this.btn_huy);
+            this.groupBox4.Controls.Add(this.btn_reload);
+            this.groupBox4.Controls.Add(this.btn_Luu);
             this.groupBox4.Controls.Add(this.btn_xoa);
             this.groupBox4.Controls.Add(this.btn_sua);
             this.groupBox4.Controls.Add(this.btn_them);
@@ -210,38 +210,38 @@
             this.groupBox4.TabIndex = 19;
             this.groupBox4.TabStop = false;
             // 
-            // button8
+            // btn_huy
             // 
-            this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
-            this.button8.Location = new System.Drawing.Point(128, 101);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(109, 39);
-            this.button8.TabIndex = 5;
-            this.button8.Text = "Hủy";
-            this.button8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button8.UseVisualStyleBackColor = true;
+            this.btn_huy.Image = ((System.Drawing.Image)(resources.GetObject("btn_huy.Image")));
+            this.btn_huy.Location = new System.Drawing.Point(128, 101);
+            this.btn_huy.Name = "btn_huy";
+            this.btn_huy.Size = new System.Drawing.Size(109, 39);
+            this.btn_huy.TabIndex = 5;
+            this.btn_huy.Text = "Hủy";
+            this.btn_huy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_huy.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // btn_reload
             // 
-            this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
-            this.button7.Location = new System.Drawing.Point(243, 101);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(103, 39);
-            this.button7.TabIndex = 4;
-            this.button7.Text = "Reload";
-            this.button7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button7.UseVisualStyleBackColor = true;
+            this.btn_reload.Image = ((System.Drawing.Image)(resources.GetObject("btn_reload.Image")));
+            this.btn_reload.Location = new System.Drawing.Point(243, 101);
+            this.btn_reload.Name = "btn_reload";
+            this.btn_reload.Size = new System.Drawing.Size(103, 39);
+            this.btn_reload.TabIndex = 4;
+            this.btn_reload.Text = "Reload";
+            this.btn_reload.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_reload.UseVisualStyleBackColor = true;
             // 
-            // button10
+            // btn_Luu
             // 
-            this.button10.Image = ((System.Drawing.Image)(resources.GetObject("button10.Image")));
-            this.button10.Location = new System.Drawing.Point(19, 101);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(103, 39);
-            this.button10.TabIndex = 3;
-            this.button10.Text = "Lưu";
-            this.button10.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button10.UseVisualStyleBackColor = true;
+            this.btn_Luu.Image = ((System.Drawing.Image)(resources.GetObject("btn_Luu.Image")));
+            this.btn_Luu.Location = new System.Drawing.Point(19, 101);
+            this.btn_Luu.Name = "btn_Luu";
+            this.btn_Luu.Size = new System.Drawing.Size(103, 39);
+            this.btn_Luu.TabIndex = 3;
+            this.btn_Luu.Text = "Lưu";
+            this.btn_Luu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_Luu.UseVisualStyleBackColor = true;
             // 
             // btn_xoa
             // 
@@ -353,14 +353,14 @@
             this.label12.TabIndex = 8;
             this.label12.Text = "Địa chỉ:";
             // 
-            // label11
+            // lbl_MatKhau
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(23, 361);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(64, 16);
-            this.label11.TabIndex = 7;
-            this.label11.Text = "Mật khẩu:";
+            this.lbl_MatKhau.AutoSize = true;
+            this.lbl_MatKhau.Location = new System.Drawing.Point(23, 361);
+            this.lbl_MatKhau.Name = "lbl_MatKhau";
+            this.lbl_MatKhau.Size = new System.Drawing.Size(64, 16);
+            this.lbl_MatKhau.TabIndex = 7;
+            this.lbl_MatKhau.Text = "Mật khẩu:";
             // 
             // label10
             // 
@@ -565,7 +565,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button btn_Luu;
         private System.Windows.Forms.Button btn_xoa;
         private System.Windows.Forms.Button btn_sua;
         private System.Windows.Forms.Button btn_them;
@@ -579,10 +579,10 @@
         private System.Windows.Forms.TextBox txt_TenNV;
         private System.Windows.Forms.TextBox txt_MaNV;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lbl_MatKhau;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button btn_huy;
+        private System.Windows.Forms.Button btn_reload;
     }
 }

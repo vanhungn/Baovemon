@@ -51,6 +51,11 @@ namespace baovemon
             combGoiTinh.Enabled = false;
             comb_VaiTro.Enabled = false;
             dateTimeP_NgaySinh.Enabled = false;
+            lbl_MatKhau.Enabled = false;
+            btn_Luu.Enabled = false;
+            btn_huy.Enabled = false;
+            btn_reload.Enabled = false;
+           
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -67,5 +72,6 @@ namespace baovemon
                 dateTimeP_NgaySinh.Value = Convert.ToDateTime(dataGridView1.Rows[r].Cells["NgaySinh"].Value);
             }
         }
+
     }
 }
