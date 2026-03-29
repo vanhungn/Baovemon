@@ -9,6 +9,11 @@ namespace DTL
 {
     public class KetNoi
     {
-        protected SqlConnection conn = new SqlConnection("Data Source = LAPTOP-NG3J2HSN\\KTEAM; Initial Catalog = quanlykho; Integrated Security=True");
+        public static string connStr = @"Data Source=.;Initial Catalog=quanlykho;Integrated Security=True";
+
+        public static SqlConnection GetConn()
+        {
+            return new SqlConnection(connStr);
+        }
     }
 }
