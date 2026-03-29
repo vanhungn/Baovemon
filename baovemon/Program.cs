@@ -16,7 +16,8 @@ namespace baovemon
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TrangChu());
+            //Application.Run(new frmPhieuNhap());
+            Application.Run(new frmPhieuXuat());
         }
     }
 }
