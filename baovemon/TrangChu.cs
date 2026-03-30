@@ -78,5 +78,17 @@ namespace baovemon
         {
 
         }
+
+        private void btn_PhieuXuat_Click(object sender, EventArgs e)
+        {
+            frmPhieuXuat f = new frmPhieuXuat();
+            f.ShowDialog();
+        }
+
+        private void btn_PhieuNhap_Click(object sender, EventArgs e)
+        {
+            frmPhieuNhap f = new frmPhieuNhap();    
+            f.ShowDialog();
+        }
     }
 }

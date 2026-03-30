@@ -48,8 +48,8 @@
     <Compile Include="HangHoa.cs" />
     <Compile Include="NhaCungCap.cs" />
     <Compile Include="NhanVien.cs" />
-    <Compile Include="PhieuNhap.cs" />
-    <Compile Include="PhieuXuat.cs" />
+    <Compile Include="PhieuNhapDTO.cs" />
+    <Compile Include="PhieuXuatDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TonKho.cs" />
   </ItemGroup>

@@ -227,7 +227,7 @@ namespace baovemon
             {
                 Manv = maNV,
                 TenNV = textBox2.Text,
-                skip = skip,
+                skip = (skip - 1) * limit,
                 limit = limit
             };
             if (them == true)
@@ -374,7 +374,7 @@ namespace baovemon
             {
                 Manv = maNV,
                 TenNV = textBox2.Text,
-                skip = skip,
+                skip = (skip - 1) * limit,
                 limit = limit
             };
             try
@@ -409,7 +409,7 @@ namespace baovemon
             {
                 Manv= maNV,
                 TenNV= textBox2.Text,
-                skip = skip,
+                skip = (skip - 1) * limit,
                 limit = limit
             };
             dataGridView1.DataSource =nhanvien.GetDataNhanVien(nv);

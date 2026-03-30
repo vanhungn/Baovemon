@@ -13,7 +13,8 @@ namespace DTL
 {
     public class NhanVien:KetNoi
     {
-        
+      
+
         public static string HashPassword(string password)
         {
             using (SHA256 sha256 = SHA256.Create())
@@ -74,6 +75,7 @@ namespace DTL
           
             return dtNhanhvien;
 
+          
         }
         public string DangNhap(DTO.NhanVien nv)
         {
@@ -97,9 +99,9 @@ namespace DTL
                     return role;
                 }
             }
-            catch
+            catch(Exception ex)
             {
-                throw;
+                throw ex;
             }
             finally
             {

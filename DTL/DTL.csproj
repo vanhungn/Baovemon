@@ -49,6 +49,8 @@
     <Compile Include="KetNoi.cs" />
     <Compile Include="NhaCungCap.cs" />
     <Compile Include="NhanVien.cs" />
+    <Compile Include="PhieuNhapDAL.cs" />
+    <Compile Include="PhieuXuatDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TonKho.cs" />
   </ItemGroup>

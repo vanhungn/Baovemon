@@ -118,6 +118,7 @@
             this.btn_PhieuNhap.Text = "PHIẾU NHẬP";
             this.btn_PhieuNhap.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_PhieuNhap.UseVisualStyleBackColor = false;
+            this.btn_PhieuNhap.Click += new System.EventHandler(this.btn_PhieuNhap_Click);
             // 
             // btn_PhieuXuat
             // 
@@ -131,6 +132,7 @@
             this.btn_PhieuXuat.Text = "PHIẾU XUẤT";
             this.btn_PhieuXuat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_PhieuXuat.UseVisualStyleBackColor = false;
+            this.btn_PhieuXuat.Click += new System.EventHandler(this.btn_PhieuXuat_Click);
             // 
             // btn_SanPham
             // 

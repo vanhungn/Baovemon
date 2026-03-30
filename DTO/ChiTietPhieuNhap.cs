@@ -8,8 +8,8 @@ namespace DTO
 {
     public class ChiTietPhieuNhap
     {
-		private int _MaMh;
-		private int _MaPX;
+		private int _MaMh; 
+		private int _MaPN;
         private int _SlNhap;
         public int MaMh
         {
@@ -21,10 +21,10 @@ namespace DTO
 			get { return _SlNhap; }
 			set { _SlNhap = value; }
 		}
-		public int MaPX
+		public int MaPN
         {
-			get { return _MaPX; }
-			set { _MaPX = value; }
+			get { return _MaPN; }
+			set { _MaPN = value; }
 		}
 
 

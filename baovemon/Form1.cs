@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -24,17 +25,32 @@ namespace baovemon
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DTO.NhanVien nv = new DTO.NhanVien()
-            {
-                TaiKhoan=textBox1.Text,
-                MatKhau =textBox2.Text,
-            };
-            if (nhanvien.DangNhap(nv) !=null)
-            {
-                TrangChu form1 = new TrangChu(nhanvien.DangNhap(nv));
-                form1.Show();
-                this.Hide();
+           
+           
+                try {
+                    DTO.NhanVien nv = new DTO.NhanVien()
+                    {
+                        TaiKhoan = textBox1.Text,
+                        MatKhau = textBox2.Text,
+                    };
+                     if (nhanvien.DangNhap(nv) !=null)
+                     {
+                    TrangChu form1 = new TrangChu(nhanvien.DangNhap(nv));
+                    form1.Show();
+                    this.Hide();
+                    }
+                    else
+                    {
+                    MessageBox.Show("Tài khoản mật khẩu không chính xác", "Thông báo", MessageBoxButtons.OK);
+                }
+
             }
+                catch (SqlException ex) {
+                    MessageBox.Show("Lỗi: " + ex.Message);
+                   
+                }
+                
+           
         }
     }
 }
