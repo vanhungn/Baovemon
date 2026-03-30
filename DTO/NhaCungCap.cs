@@ -13,7 +13,20 @@ namespace DTO
         private string _DiaChi;
         private string _DienThoaiCC;
         private string _Email;
+        private int _skip;
 
+        public int skip
+        {
+            get { return _skip; }
+            set { _skip = value; }
+        }
+        private int _limit;
+
+        public int limit
+        {
+            get { return _limit; }
+            set { _limit = value; }
+        }
         public int MaNCC
         {
 			get { return _MaNCC; }

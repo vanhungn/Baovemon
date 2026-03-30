@@ -16,9 +16,31 @@ namespace DTO
 		private string _DiaChi;
 		private string _TaiKhoan;
         private string _MatKhau;
-		private int _VaiTro;
+		private string _VaiTro;
+		private int _skip;
 
-		public int VaiTro
+		private string _newPassword;
+
+		public string newPassword
+        {
+			get { return _newPassword; }
+			set { _newPassword = value; }
+		}
+
+		public int skip
+		{
+			get { return _skip; }
+			set { _skip = value; }
+		}
+		private int _limit;
+
+		public int limit
+		{
+			get { return _limit; }
+			set { _limit = value; }
+		}
+
+		public string VaiTro
         {
 			get { return _VaiTro; }
 			set { _VaiTro = value; }

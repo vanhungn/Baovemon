@@ -62,12 +62,12 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lbl_MaNV = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lbl_totalPage = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txt_page = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -108,20 +108,20 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(21, 66);
+            this.label3.Location = new System.Drawing.Point(21, 72);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(110, 16);
+            this.label3.Size = new System.Drawing.Size(99, 16);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Tên Khách Hàng ";
+            this.label3.Text = "Tên Nhân Viên ";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(21, 32);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(101, 16);
+            this.label2.Size = new System.Drawing.Size(91, 16);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Mã khách Hàng";
+            this.label2.Text = "Mã Nhân Viên";
             // 
             // button6
             // 
@@ -142,6 +142,7 @@
             this.button5.Text = "Lọc";
             this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // textBox2
             // 
@@ -177,7 +178,7 @@
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.lbl_MaNV);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Location = new System.Drawing.Point(602, 100);
             this.groupBox2.Name = "groupBox2";
@@ -220,6 +221,7 @@
             this.btn_huy.Text = "Hủy";
             this.btn_huy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_huy.UseVisualStyleBackColor = true;
+            this.btn_huy.Click += new System.EventHandler(this.btn_huy_Click);
             // 
             // btn_reload
             // 
@@ -231,6 +233,7 @@
             this.btn_reload.Text = "Reload";
             this.btn_reload.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_reload.UseVisualStyleBackColor = true;
+            this.btn_reload.Click += new System.EventHandler(this.btn_reload_Click);
             // 
             // btn_Luu
             // 
@@ -242,6 +245,7 @@
             this.btn_Luu.Text = "Lưu";
             this.btn_Luu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Luu.UseVisualStyleBackColor = true;
+            this.btn_Luu.Click += new System.EventHandler(this.btn_Luu_Click);
             // 
             // btn_xoa
             // 
@@ -253,6 +257,7 @@
             this.btn_xoa.Text = "Xóa";
             this.btn_xoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_xoa.UseVisualStyleBackColor = true;
+            this.btn_xoa.Click += new System.EventHandler(this.btn_xoa_Click);
             // 
             // btn_sua
             // 
@@ -264,6 +269,7 @@
             this.btn_sua.Text = "Sửa";
             this.btn_sua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_sua.UseVisualStyleBackColor = true;
+            this.btn_sua.Click += new System.EventHandler(this.btn_sua_Click);
             // 
             // btn_them
             // 
@@ -275,14 +281,19 @@
             this.btn_them.Text = "Thêm";
             this.btn_them.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_them.UseVisualStyleBackColor = true;
+            this.btn_them.Click += new System.EventHandler(this.btn_them_Click);
             // 
             // combGoiTinh
             // 
             this.combGoiTinh.FormattingEnabled = true;
+            this.combGoiTinh.Items.AddRange(new object[] {
+            "Nam",
+            "Nữ"});
             this.combGoiTinh.Location = new System.Drawing.Point(130, 164);
             this.combGoiTinh.Name = "combGoiTinh";
             this.combGoiTinh.Size = new System.Drawing.Size(258, 24);
             this.combGoiTinh.TabIndex = 18;
+            this.combGoiTinh.Text = "Chọn giới tính";
             // 
             // dateTimeP_NgaySinh
             // 
@@ -305,6 +316,7 @@
             // 
             this.txt_MK.Location = new System.Drawing.Point(130, 355);
             this.txt_MK.Name = "txt_MK";
+            this.txt_MK.PasswordChar = '*';
             this.txt_MK.Size = new System.Drawing.Size(258, 22);
             this.txt_MK.TabIndex = 14;
             // 
@@ -318,10 +330,14 @@
             // comb_VaiTro
             // 
             this.comb_VaiTro.FormattingEnabled = true;
+            this.comb_VaiTro.Items.AddRange(new object[] {
+            "Admin",
+            "Nhân viên"});
             this.comb_VaiTro.Location = new System.Drawing.Point(130, 134);
             this.comb_VaiTro.Name = "comb_VaiTro";
             this.comb_VaiTro.Size = new System.Drawing.Size(258, 24);
             this.comb_VaiTro.TabIndex = 12;
+            this.comb_VaiTro.Text = "Chọn vai trò";
             // 
             // txt_SDT
             // 
@@ -409,14 +425,14 @@
             this.label6.TabIndex = 2;
             this.label6.Text = "Giới tính:";
             // 
-            // label5
+            // lbl_MaNV
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(21, 84);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(89, 16);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Mã nhân viên:";
+            this.lbl_MaNV.AutoSize = true;
+            this.lbl_MaNV.Location = new System.Drawing.Point(21, 84);
+            this.lbl_MaNV.Name = "lbl_MaNV";
+            this.lbl_MaNV.Size = new System.Drawing.Size(89, 16);
+            this.lbl_MaNV.TabIndex = 1;
+            this.lbl_MaNV.Text = "Mã nhân viên:";
             // 
             // label4
             // 
@@ -441,7 +457,7 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.lbl_totalPage);
-            this.groupBox3.Controls.Add(this.textBox3);
+            this.groupBox3.Controls.Add(this.txt_page);
             this.groupBox3.Controls.Add(this.button4);
             this.groupBox3.Controls.Add(this.button3);
             this.groupBox3.Controls.Add(this.button2);
@@ -458,17 +474,16 @@
             this.lbl_totalPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lbl_totalPage.Location = new System.Drawing.Point(247, 80);
             this.lbl_totalPage.Name = "lbl_totalPage";
-            this.lbl_totalPage.Size = new System.Drawing.Size(25, 20);
+            this.lbl_totalPage.Size = new System.Drawing.Size(0, 20);
             this.lbl_totalPage.TabIndex = 5;
-            this.lbl_totalPage.Text = "of";
             this.lbl_totalPage.Click += new System.EventHandler(this.label2_Click);
             // 
-            // textBox3
+            // txt_page
             // 
-            this.textBox3.Location = new System.Drawing.Point(141, 80);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 22);
-            this.textBox3.TabIndex = 4;
+            this.txt_page.Location = new System.Drawing.Point(141, 80);
+            this.txt_page.Name = "txt_page";
+            this.txt_page.Size = new System.Drawing.Size(100, 22);
+            this.txt_page.TabIndex = 4;
             // 
             // button4
             // 
@@ -479,6 +494,7 @@
             this.button4.TabIndex = 3;
             this.button4.Text = ">>";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -489,6 +505,7 @@
             this.button3.TabIndex = 2;
             this.button3.Text = ">";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -510,6 +527,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "<<";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // NhanVien
             // 
@@ -549,7 +567,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label lbl_totalPage;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txt_page;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
@@ -561,7 +579,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lbl_MaNV;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.GroupBox groupBox4;

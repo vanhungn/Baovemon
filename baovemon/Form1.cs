@@ -16,7 +16,7 @@ namespace baovemon
         {
             InitializeComponent();
         }
-
+        BUS.NhanVien nhanvien = new BUS.NhanVien(); 
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -24,8 +24,17 @@ namespace baovemon
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string  userName = textBox1.Text;
-            string password = textBox2.Text;
+            DTO.NhanVien nv = new DTO.NhanVien()
+            {
+                TaiKhoan=textBox1.Text,
+                MatKhau =textBox2.Text,
+            };
+            if (nhanvien.DangNhap(nv) !=null)
+            {
+                TrangChu form1 = new TrangChu(nhanvien.DangNhap(nv));
+                form1.Show();
+                this.Hide();
+            }
         }
     }
 }

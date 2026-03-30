@@ -30,56 +30,230 @@ namespace DTL
                 return builder.ToString();
             }
         }
-        public DataTable GetNhanVien()
+        public DataTable GetNhanVien(DTO.NhanVien nv)
             
         {
-            conn.Open();
-            string query = "select *from nhan_vien";
-            SqlDataAdapter daNhanVien = new SqlDataAdapter(query,conn);
+            
             DataTable dtNhanhvien = new DataTable();
-            dtNhanhvien.Clear();
-            daNhanVien.Fill(dtNhanhvien);
+            try
+            {
+                conn.Open();
+                string query = "";
+                if (nv.TenNV == "" && nv.Manv==0)
+                {
+                    Console.WriteLine("dff");
+                    query = "select * from nhan_vien order by Manv offset " + nv.skip +" rows fetch next " + nv.limit + " rows only";
+                }
+                else if (nv.TenNV != "" && nv.Manv == 0)
+                {
+                    query = "select *from nhan_vien where TenNV like '%" + nv.TenNV + "%'";
 
+                }
+                else if (nv.Manv > 0 && nv.TenNV == "")
+                {
+                    Console.WriteLine(nv.Manv);
+                    query = "select *from nhan_vien where Manv= '" + nv.Manv + "'";
+                }
+                else
+                {
+                    query = "select *from nhan_vien where Manv ='" + nv.Manv + "' and TenNV like'%" + nv.TenNV + "%'";
+                }
+                SqlDataAdapter daNhanVien = new SqlDataAdapter(query, conn);
+                dtNhanhvien.Clear();
+                daNhanVien.Fill(dtNhanhvien);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
+          
             return dtNhanhvien;
+
         }
-        public bool DangNhap(DTO.NhanVien nv)
+        public string DangNhap(DTO.NhanVien nv)
         {
             conn.Open();
 
             string hashedPassword = HashPassword(nv.MatKhau);
 
             string query = "select * from nhan_vien where TaiKhoan=@TaiKhoan and MatKhau=@MatKhau";
+            try
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
 
-            SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@TaiKhoan", nv.TaiKhoan);
+                cmd.Parameters.AddWithValue("@MatKhau", hashedPassword);
 
-            cmd.Parameters.AddWithValue("@TaiKhoan", nv.TaiKhoan);
-            cmd.Parameters.AddWithValue("@MatKhau", hashedPassword);
+                SqlDataReader reader = cmd.ExecuteReader();
 
-            SqlDataReader reader = cmd.ExecuteReader();
-
-            if (reader.HasRows)
+                if (reader.Read())
+                {
+                    string role = reader["VaiTro"].ToString();
+                    return role;
+                }
+            }
+            catch
+            {
+                throw;
+            }
+            finally
             {
                 conn.Close();
-                return true;
             }
+            return null;
+        }
+        public bool DoiMatKhau(DTO.NhanVien nv)
+        {
+            conn.Open();
+            try
+            {
+                string hashedPasswordOld = HashPassword(nv.MatKhau);
+                string hashedPasswordNew = HashPassword(nv.newPassword);
 
-            conn.Close();
+                string query = "UPDATE nhan_vien SET MatKhau = @MatKhauMoi WHERE TaiKhoan=@TaiKhoan AND  MatKhau = @MatKhauCu";
+                SqlCommand cmd = new SqlCommand (query, conn);
+                cmd.Parameters.AddWithValue("@TaiKhoan", nv.TaiKhoan);
+                cmd.Parameters.AddWithValue("@MatKhauMoi", hashedPasswordNew);
+                cmd.Parameters.AddWithValue("@MatKhauCu", hashedPasswordOld);
+                if (cmd.ExecuteNonQuery()>0) {
+                    return true;
+                }
+            }
+            catch {
+                throw;
+                   }
+            finally { conn.Close(); }
             return false;
         }
         public bool ThemNhanVien(DTO.NhanVien nv)
         {
             conn.Open();
             string hashedPassword = HashPassword(nv.MatKhau);
-            string query = string.Format("insert into nhan_vien values " +
-                "({0},{1},{2},{3},{4},{5},{6},{7})",nv.TenNV,nv.GioiTinh,nv.NgaySinh,nv.DiaChi,
-                nv.DienThoai,nv.TaiKhoan, hashedPassword, nv.VaiTro);
-            SqlCommand cmd = new SqlCommand(query,conn);
-            if (cmd.ExecuteNonQuery() > 0)
+            string query = "INSERT INTO nhan_vien " +
+                 "(TenNV, GioiTinh, NgaySinh, DiaChi, DienThoai, TaiKhoan, MatKhau, VaiTro) " +
+                 "VALUES (@TenNV, @GioiTinh, @NgaySinh, @DiaChi, @DienThoai, @TaiKhoan, @MatKhau, @VaiTro)";
+            try
             {
-                return true;
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@TenNV", nv.TenNV);
+                    cmd.Parameters.AddWithValue("@GioiTinh", nv.GioiTinh);
+                    cmd.Parameters.AddWithValue("@NgaySinh", nv.NgaySinh);
+                    cmd.Parameters.AddWithValue("@DiaChi", nv.DiaChi);
+                    cmd.Parameters.AddWithValue("@DienThoai", nv.DienThoai);
+                    cmd.Parameters.AddWithValue("@TaiKhoan", nv.TaiKhoan);
+                    cmd.Parameters.AddWithValue("@MatKhau", hashedPassword);
+                    cmd.Parameters.AddWithValue("@VaiTro", nv.VaiTro);
+                    if (cmd.ExecuteNonQuery() > 0)
+                    {
+                        return true;
+                    }
+                   
+                }
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            finally { conn.Close(); }
+
+            return false;
+
+        }
+        public bool XoaNhanVien(DTO.NhanVien nv)
+        {
+            try
+            {
+                conn.Open();
+                string query = "delete nhan_vien where Manv=@Manv";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@Manv", nv.Manv);
+                if(cmd.ExecuteNonQuery() > 0) { return true; }
+            }
+            catch (Exception ) { throw ; }
+           
+            finally
+            {
+                conn.Close();
             }
             return false;
         }
 
+        public bool SuaNhanVien(DTO.NhanVien nv)
+        {
+            try
+            {
+                conn.Open();
+
+                string query;
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+
+                if (!string.IsNullOrEmpty(nv.MatKhau))
+                {
+                    string hashedPassword = HashPassword(nv.MatKhau);
+
+                    query = "UPDATE nhan_vien SET TenNV=@TenNV, GioiTinh=@GioiTinh, NgaySinh=@NgaySinh, " +
+                            "DiaChi=@DiaChi, DienThoai=@DienThoai, TaiKhoan=@TaiKhoan, MatKhau=@MatKhau, VaiTro=@VaiTro " +
+                            "WHERE Manv=@Manv";
+
+                    cmd.Parameters.AddWithValue("@MatKhau", hashedPassword);
+                }
+                else
+                {
+                    query = "UPDATE nhan_vien SET TenNV=@TenNV, GioiTinh=@GioiTinh, NgaySinh=@NgaySinh, " +
+                            "DiaChi=@DiaChi, DienThoai=@DienThoai, TaiKhoan=@TaiKhoan, VaiTro=@VaiTro " +
+                            "WHERE Manv=@Manv";
+                }
+
+                cmd.CommandText = query;
+
+                cmd.Parameters.AddWithValue("@TenNV", nv.TenNV);
+                cmd.Parameters.AddWithValue("@GioiTinh", nv.GioiTinh);
+                cmd.Parameters.AddWithValue("@NgaySinh", nv.NgaySinh);
+                cmd.Parameters.AddWithValue("@DiaChi", nv.DiaChi);
+                cmd.Parameters.AddWithValue("@DienThoai", nv.DienThoai);
+                cmd.Parameters.AddWithValue("@TaiKhoan", nv.TaiKhoan);
+                cmd.Parameters.AddWithValue("@VaiTro", nv.VaiTro);
+                cmd.Parameters.AddWithValue("@Manv", nv.Manv);
+                Console.WriteLine(nv.Manv);
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close(); 
+            }
+            return false;
+        }
+        public DataTable GetTotalNhanvien()
+        {
+            DataTable dtNhanVien = new DataTable();
+            try {
+                conn.Open();
+                string query = "select * from nhan_vien";
+                SqlDataAdapter daNhanVien= new SqlDataAdapter(query,conn);
+                dtNhanVien.Clear();
+                daNhanVien.Fill(dtNhanVien);
+
+            }
+            catch {
+                throw;
+            }
+            finally { conn.Close(); }
+            return dtNhanVien;
+        }
     }
 }
