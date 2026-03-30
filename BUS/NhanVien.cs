@@ -13,6 +13,7 @@ namespace BUS
        public DataTable GetDataNhanVien()
         {
             return nhanvien.GetNhanVien();
+
         }
         public bool ThemNhanVien(DTO.NhanVien tv)
         {

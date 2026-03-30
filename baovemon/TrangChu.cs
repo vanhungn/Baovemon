@@ -45,5 +45,11 @@ namespace baovemon
             FormKhachHang f = new FormKhachHang();
             f.ShowDialog();
         }
+
+        private void btn_PhieuXuat_Click(object sender, EventArgs e)
+        {
+            frmPhieuXuat f = new frmPhieuXuat();
+            f.ShowDialog();
+        }
     }
 }

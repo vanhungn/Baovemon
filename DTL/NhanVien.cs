@@ -14,6 +14,7 @@ namespace DTL
     public class NhanVien:KetNoi
     {
         
+
         public static string HashPassword(string password)
         {
             using (SHA256 sha256 = SHA256.Create())
@@ -33,14 +34,13 @@ namespace DTL
         public DataTable GetNhanVien()
             
         {
-            conn.Open();
-            string query = "select *from nhan_vien";
-            SqlDataAdapter daNhanVien = new SqlDataAdapter(query,conn);
-            DataTable dtNhanhvien = new DataTable();
-            dtNhanhvien.Clear();
-            daNhanVien.Fill(dtNhanhvien);
+            string query = "select Manv, TenNV from nhan_vien";
 
-            return dtNhanhvien;
+            SqlDataAdapter da = new SqlDataAdapter(query, conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            return dt;
         }
         public bool DangNhap(DTO.NhanVien nv)
         {

@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    public class PhieuXuat
+    public class PhieuNhapDTO
     {
-		private int _MaPX;
-        private string _NgayXuat;
+		private int _MaPN;
+        private DateTime _NgayNhap;
         private int _Manv;
         private int _MaKho;
-        public int MaPX
+        public int MaPN
         {
-			get { return _MaPX; }
-			set { _MaPX = value; }
+			get { return _MaPN; }
+			set { _MaPN = value; }
 		}
 		public int Manv
         {
@@ -27,12 +27,10 @@ namespace DTO
 			get { return _MaKho; }
 			set { _MaKho = value; }
 		}
-		public string NgayXuat
+        public DateTime NgayNhap
         {
-			get { return _NgayXuat; }
-			set { _NgayXuat = value; }
-		}
-
-
-	}
+            get { return _NgayNhap; }
+            set { _NgayNhap = value; }
+        }
+    }
 }
