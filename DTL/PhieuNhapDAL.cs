@@ -5,11 +5,9 @@ using DTO;
 
 namespace DTL
 {
-    public class PhieuNhapDAL
+    public class PhieuNhapDAL:KetNoi
     {
-        SqlConnection conn = new SqlConnection(
-            @"Data Source=MEDIA\SQLEXPRESS;Initial Catalog=quanlykho;Integrated Security=True");
-
+     
         // ================= GET ALL (JOIN HIỂN THỊ TÊN) =================
         public DataTable GetAll()
         {

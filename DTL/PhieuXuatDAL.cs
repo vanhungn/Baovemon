@@ -9,10 +9,9 @@ using System.Threading.Tasks;
 
 namespace DTL
 {
-    public class PhieuXuatDAL
+    public class PhieuXuatDAL:KetNoi
     {
-        SqlConnection conn = new SqlConnection(
-            @"Data Source=MEDIA\SQLEXPRESS;Initial Catalog=quanlykho;Integrated Security=True");
+       
 
         // ================= GET ALL (JOIN HIỂN THỊ TÊN) =================
         public DataTable GetAll()
@@ -42,7 +41,7 @@ namespace DTL
         public int InsertAndGetid(PhieuXuatDTO px)
         {
             using (SqlConnection conn = new SqlConnection(
-                @"Data Source=MEDIA\SQLEXPRESS;Initial Catalog=quanlykho;Integrated Security=True"))
+                @"Data Source = LAPTOP-NG3J2HSN\\KTEAM; Initial Catalog = quanlykho; Integrated Security=True"))
             {
                 string sql = @"
             INSERT INTO phieu_xuat(Manv, MaKho, NgayXuat)

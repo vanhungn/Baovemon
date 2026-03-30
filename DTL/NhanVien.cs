@@ -13,8 +13,7 @@ namespace DTL
 {
     public class NhanVien:KetNoi
     {
-        SqlConnection conn = new SqlConnection(
-            @"Data Source=MEDIA\SQLEXPRESS;Initial Catalog=quanlykho;Integrated Security=True");
+        
 
         public static string HashPassword(string password)
         {

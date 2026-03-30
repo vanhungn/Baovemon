@@ -17,8 +17,7 @@ namespace baovemon
     {
         PhieuXuatBUS bus = new PhieuXuatBUS();
         BUS.CTPhieuXuat busCTPX = new BUS.CTPhieuXuat();
-        SqlConnection conn = new SqlConnection(
-            @"Data Source=MEDIA\SQLEXPRESS;Initial Catalog=quanlykho;Integrated Security=True");
+        string conn = @"Data Source=DESKTOP-3INS5UR\MSSQLSERVER01;Initial Catalog=quanlykho;Integrated Security=True";
         public frmPhieuXuat()
         {
             InitializeComponent();

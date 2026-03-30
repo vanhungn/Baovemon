@@ -45,7 +45,7 @@
     <Compile Include="CTPhieuNhap.cs" />
     <Compile Include="CTPhieuXuat.cs" />
     <Compile Include="DiaDiem.cs" />
-    <Compile Include="HangHoa.cs" />
+    <Compile Include="HangHoaDTL.cs" />
     <Compile Include="KetNoi.cs" />
     <Compile Include="NhaCungCap.cs" />
     <Compile Include="NhanVien.cs" />
