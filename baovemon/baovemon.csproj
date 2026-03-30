@@ -52,6 +52,24 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormKhachHang.Designer.cs">
+      <DependentUpon>FormKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormQuanLySanPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormQuanLySanPham.Designer.cs">
+      <DependentUpon>FormQuanLySanPham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KhachHang.Designer.cs">
+      <DependentUpon>KhachHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="NhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +78,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TonKho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TonKho.Designer.cs">
+      <DependentUpon>TonKho.cs</DependentUpon>
+    </Compile>
     <Compile Include="TrangChu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +92,15 @@
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormKhachHang.resx">
+      <DependentUpon>FormKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormQuanLySanPham.resx">
+      <DependentUpon>FormQuanLySanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KhachHang.resx">
+      <DependentUpon>KhachHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NhanVien.resx">
       <DependentUpon>NhanVien.cs</DependentUpon>
@@ -82,6 +115,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="TonKho.resx">
+      <DependentUpon>TonKho.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TrangChu.resx">
       <DependentUpon>TrangChu.cs</DependentUpon>
     </EmbeddedResource>
@@ -102,6 +138,10 @@
     <ProjectReference Include="..\BUS\BUS.csproj">
       <Project>{384e1466-4ddf-40fd-a1dc-83244f598deb}</Project>
       <Name>BUS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{fe759b0f-98e1-421a-b701-f9de4c21f2b1}</Project>
+      <Name>DTO</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

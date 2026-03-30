@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    public class HangHoa
-    {
+    public class HangHoaDTO
+	{
 		private int _MaMh;
         private string _TenMh;
         private string _LoaiMh;
